@@ -4236,6 +4236,7 @@ html {
  * ---------    Template    ---------
  */
 .app {
+  position: relative;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4384,7 +4385,7 @@ html {
           transition-timing-function: ease-in-out;
 }
 
-.nav__link:hover {
+.nav__link:hover, .nav__link--active {
   background-color: #9A3AB0;
 }
 
@@ -4509,6 +4510,136 @@ button:hover {
 
 .header i {
   margin-left: 75px;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-height: 200px;
+  min-width: 400px;
+  -webkit-transform: translate(-50%, -65%);
+          transform: translate(-50%, -65%);
+  padding: 45px 50px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+          box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+  z-index: 90;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #AB60B8;
+  font-size: 1.15em;
+  font-weight: 500;
+  letter-spacing: 2px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: popupFadeIn 0.5s;
+          animation: popupFadeIn 0.5s;
+}
+
+.popup__title {
+  width: 100%;
+  display: block;
+}
+
+@-webkit-keyframes popupFadeIn {
+  from {
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes popupFadeIn {
+  from {
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.popup__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 89;
+  -webkit-animation: overlayDadeIn 0.5s;
+          animation: overlayDadeIn 0.5s;
+}
+
+@-webkit-keyframes overlayDadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayDadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.popup__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  margin: 5px 10px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.popup__buttons {
+  display: block;
+  width: 100%;
+  margin-top: 45px;
+}
+
+.popup__button {
+  display: inline-block;
+  width: 50%;
+  padding: 15px;
+  color: #9C9C9C;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.popup__button:nth-of-type(1) {
+  border-right: 2px solid #AB60B8;
+}
+
+.popup__button:hover {
+  color: #AB60B8;
 }
 
 .svg {

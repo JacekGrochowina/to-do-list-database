@@ -34,7 +34,8 @@
                 transition-property: background-color;
                 transition-duration: 0.2s;
                 transition-timing-function: ease-in-out;
-                &:hover {
+                &:hover,
+                &--active {
                     background-color: $color__leading-3;
                 }
             }
@@ -141,6 +142,93 @@
             color: $color__leading-3;
             i {
                 margin-left: 75px;
+            }
+        }
+
+    // Popup
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-height: 200px;
+            min-width: 400px;
+            transform: translate(-50%, -65%);
+            padding: 45px 50px;
+            border-radius: 20px;
+            text-align: center;
+            background-color: $color__white;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+            z-index: 90;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            color: $color__leading;
+            font-size: 1.15em;
+            font-weight: $medium;
+            letter-spacing: 2px;
+            &__title {
+                width: 100%;
+                display: block;
+            }
+            // animation
+            transform: translate(-50%, -50%);
+            animation: popupFadeIn 0.5s;
+            @keyframes popupFadeIn {
+                from {
+                    transform: translate(-50%, -100%);
+                    opacity: 0;
+                } to {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+            }
+            &__overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.85);
+                z-index: 89;
+    
+                // animation
+                animation: overlayDadeIn 0.5s;
+                @keyframes overlayDadeIn {
+                    from {
+                        opacity: 0;
+                    } to {
+                        opacity: 1;
+                    }
+                }
+            }
+            &__close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 10px;
+                margin: 5px 10px;
+                font-size: 1.3em;
+                cursor: pointer;
+            }
+            &__buttons {
+                display: block;
+                width: 100%;
+                margin-top: 45px;
+            }
+            &__button {
+                display: inline-block;
+                width: 50%;
+                padding: 15px;
+                color: $color__grey;
+                cursor: pointer;
+                font-size: 0.9em;
+                &:nth-of-type(1) {
+                    border-right: 2px solid $color__leading;
+                }
+                &:hover {
+                    color: $color__leading;
+                }
             }
         }
 

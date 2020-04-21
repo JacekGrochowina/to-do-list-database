@@ -14,11 +14,12 @@
 
 <body>
     <div class="app">
+
         <!-- Navigation -->
         <nav class="nav nav__main">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="#" class="nav__link">Startowa</a>
+                    <a href="#" class="nav__link nav__link--active">Startowa</a>
                 </li>
                 <li class="nav__item">
                     <a href="signin.html" class="nav__link">Zaloguj się</a>
@@ -31,7 +32,7 @@
 
 
         <!-- Main Content Page -->
-        <main class="flex-grow-1 flex-center">
+        <main class="flex-grow-1 flex-center py-5">
             <div class="container container--expand position-relative">
                 <div class="row align-items-center">
                     <div class="
@@ -56,14 +57,37 @@
                                 <span class="hero margin-2">Lista</span>
                             </h1>
                             <div class="wrapper" style="text-align: center;">
-                                <button class="button button__default">zacznij</button>
+                                <button class="button button__default" data-function="start">zacznij</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
+
     </div>
+
+
+    <!-- JavaScript -->
+    <script type="module" src="./src/js/index.js"></script>
+
+    <script type="module">
+        import * as fnc from './src/js/functions.js';
+
+        function showTrue() {
+            window.location.href = './signin.html';
+        }
+
+        function showFalse() {
+            window.location.href = './signup.html';
+        }
+
+        document.querySelector('button[data-function="start"]').addEventListener('click', () => {
+
+            fnc.showPopup.dialog('Czy masz już konto?', 'Tak, mam', 'Jeszcze nie', showTrue, showFalse);
+
+        });
+    </script>
 </body>
 
 </html>
