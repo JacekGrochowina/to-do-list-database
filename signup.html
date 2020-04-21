@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Lista</title>
+
+    <script src="https://kit.fontawesome.com/5e965261f7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./src/styles/main.css">
+
+</head>
+
+<body>
+    <div class="app">
+        <!-- Navigation -->
+        <nav class="nav nav__main">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">Startowa</a>
+                </li>
+                <li class="nav__item">
+                    <a href="signin.html" class="nav__link">Zaloguj się</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">Zarejestruj się</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Main Content Page -->
+        <main class="flex-grow-1">
+            <div class="row no-gutters" style="height: calc(100vh - 80px);">
+                <div class="col-12 col-md-6 flex-center p-5">
+                    <img style="width: 65%;" src="src/assets/svg/hero/SignUp.svg" class="svg svg__sign-in">
+                </div>
+                <div class="col-12 col-md-6 flex-center border p-5">
+                    <div class="form-wrapper">
+
+                        <!-- Header -->
+                        <header class="header">
+                            <h1>Zarejestruj się<i class="fas fa-user-plus"></i></h1>
+                        </header>
+
+                        <!-- Form -->
+                        <form class="form">
+                            <div class="form__group">
+                                <input class="input" type="email" placeholder="Email">
+                            </div>
+
+                            <div class="form__group">
+                                <input class="input" type="password" placeholder="Hasło">
+                            </div>
+
+                            <div class="form__group">
+                                <input class="input" type="password" placeholder="Powtórz hasło">
+                            </div>
+
+                            <div class="form__group form__group--button">
+                                <button type="submit">Dalej<i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </form>
+
+                        <!-- Footer -->
+                        <div class="footer text-center">
+                            <a class="desc" href="signin.html">Masz już założone konto?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

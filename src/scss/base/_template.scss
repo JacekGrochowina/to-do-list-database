@@ -1,0 +1,41 @@
+/*
+ * ---------    Template    ---------
+ */
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+@media(max-width: 768px) {
+    .pt-md-6 {
+        padding-top: 15em;
+    }
+}
+
+.border {
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container--expand {
+    max-width: 1300px;
+}

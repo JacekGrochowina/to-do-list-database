@@ -1,0 +1,31 @@
+/*
+ * ---------    Variables   ---------
+ */
+
+    // Colors
+        $color__leading:    #AB60B8;
+        $color__leading-2:  #9A56A5;
+        $color__leading-3:  #9A3AB0;
+
+        $color__grey:       #9C9C9C;
+        $color__grey-2:     #707070;
+        $color__grey-3:     #CECECE;
+
+        $color__white:      #FFFFFF;
+        $color__success:    #CEF9B5;
+        $color__success-2:  #97C97A;
+
+    // Fonts
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
+        /*
+         *  import:
+         *  > font name: Hind Siliguri
+         *  > font weight: 400, 500, 600
+         *
+         */
+        $font__family: 'Hind Siliguri', sans-serif;
+
+        // weight
+            $regular:   400;
+            $medium:    500;
+            $semi-bold: 600;

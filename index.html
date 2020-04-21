@@ -1,49 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do Lista</title>
 
-    <!-- add "include-html" attribute -->
-    <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            /*loop through a collection of all HTML elements:*/
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                /*search for elements with a certain atrribute:*/
-                file = elmnt.getAttribute("include-html");
-                if (file) {
-                    /*make an HTTP request using the attribute value as the file name:*/
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                            /*remove the attribute, and call this function once more:*/
-                            elmnt.removeAttribute("include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    /*exit the function:*/
-                    return;
-                }
-            }
-        };
-    </script>
+    <script src="https://kit.fontawesome.com/5e965261f7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./src/styles/main.css">
 
 </head>
 
 <body>
+    <div class="app">
+        <!-- Navigation -->
+        <nav class="nav nav__main">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#" class="nav__link">Startowa</a>
+                </li>
+                <li class="nav__item">
+                    <a href="signin.html" class="nav__link">Zaloguj się</a>
+                </li>
+                <li class="nav__item">
+                    <a href="signup.html" class="nav__link">Zarejestruj się</a>
+                </li>
+            </ul>
+        </nav>
 
-    <script>
-        includeHTML();
-    </script>
+
+        <!-- Main Content Page -->
+        <main class="flex-grow-1 flex-center">
+            <div class="container container--expand position-relative">
+                <div class="row align-items-center">
+                    <div class="
+                        col-lg-8
+                        col-md-9
+                        col-12
+                        pt-md-6
+                    ">
+                        <img src="./src/assets/svg/hero/StartPage.svg" class="svg svg__start-page">
+                    </div>
+
+                    <div class="
+                        offset-lg-6 col-lg-6
+                        offset-md-5 col-md-7
+                        offset-sm-2 col-sm-10
+                        offset-0 col-12
+                        position-absolute" style="z-index: 10;">
+                        <div class="wrapper">
+                            <h1 class="title title__hero">
+                                <span class="hero margin-0">To</span>
+                                <span class="separator margin-1">do</span>
+                                <span class="hero margin-2">Lista</span>
+                            </h1>
+                            <div class="wrapper" style="text-align: center;">
+                                <button class="button button__default">zacznij</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>

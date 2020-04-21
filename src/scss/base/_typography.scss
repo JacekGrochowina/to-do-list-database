@@ -1,0 +1,51 @@
+/*
+ * ---------    Typography    ---------
+ */
+
+    // Title
+        .title {
+            &__hero {
+                color: $color__leading;
+                margin-bottom: 3em;
+                span {
+                    &.margin-0 {
+                        margin-left: 0em;
+                    }
+                    &.margin-1 {
+                        margin-left: 1.5em;
+                    }
+                    &.margin-2 {
+                        margin-left: 1.3em;
+                    }
+                    &.hero {
+                        display: block;
+                        font-size: 3.5em;
+                        text-transform: uppercase;
+                        line-height: 0.8;
+                    }
+                    &.separator {
+                        color: $color__white;
+                        font-size: 2em;
+                        line-height: 0.8;
+                        position: relative;
+                        z-index: 1;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-43%, -40%) rotate(-4deg);
+                            width: 190%;
+                            height: 60%;
+                            background-color: $color__leading-2;
+                            z-index: -1;
+                        }
+                    }
+                }
+            }
+        }
+
+    // Header
+        .header {
+            
+        }
