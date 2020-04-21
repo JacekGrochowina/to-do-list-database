@@ -11,6 +11,11 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./src/styles/main.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
 </head>
 
 <body>
@@ -20,13 +25,7 @@
         <nav class="nav nav__main">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="#" class="nav__link nav__link--active">Startowa</a>
-                </li>
-                <li class="nav__item">
-                    <a href="signin.html" class="nav__link">Zaloguj się</a>
-                </li>
-                <li class="nav__item">
-                    <a href="signup.html" class="nav__link">Zarejestruj się</a>
+                    <a href="#" class="nav__link">Wyloguj się</a>
                 </li>
             </ul>
         </nav>
@@ -53,13 +52,10 @@
                         position-absolute" style="z-index: 10;">
                         <div class="wrapper">
                             <h1 class="title title__hero">
-                                <span class="hero margin-0">To</span>
-                                <span class="separator margin-1">do</span>
-                                <span class="hero margin-2">Lista</span>
+                                <span class="hero margin-0">Witaj</span>
                             </h1>
                             <div class="wrapper" style="text-align: center;">
-                                <button class="button button__default" data-function="start">zacznij<i
-                                        class="far fa-play-circle"></i></button>
+                                <button class="button button__default" data-function="start">zacznij</button>
                             </div>
                         </div>
                     </div>
@@ -70,28 +66,26 @@
     </div>
 
 
-    <!------------------------------------------------------------>
-    <!------------------------ JavaScript ------------------------>
-    <!------------------------------------------------------------>
-
-    <!-- Firebase Config -->
+    <!-- JavaScript -->
     <script type="module" src="./src/js/firebase-config.js"></script>
 
-    <!-- Popup -->
     <script type="module">
         import * as fnc from './src/js/functions.js';
 
+        function showTrue() {
+            window.location.href = './signin.html';
+        }
+
+        function showFalse() {
+            window.location.href = './signup.html';
+        }
+
         document.querySelector('button[data-function="start"]').addEventListener('click', () => {
-            fnc.showPopup.dialog('Czy masz już konto?', 'Tak, mam', 'Jeszcze nie',
-                () => {
-                    window.location.href = './signin.html';
-                },
-                () => {
-                    window.location.href = './signup.html';
-                });
+
+            fnc.showPopup.dialog('Czy masz już konto?', 'Tak, mam', 'Jeszcze nie', showTrue, showFalse);
+
         });
     </script>
-
 </body>
 
 </html>
