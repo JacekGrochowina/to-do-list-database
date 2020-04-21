@@ -5,16 +5,16 @@ export const showPopup = {
     info: function (message) {
         const overlay = document.createElement('div');
         overlay.setAttribute('data-type', 'overlay');
-        overlay.classList.add('overlay');
+        overlay.classList.add('popup__overlay');
 
         const closeBtn = document.createElement('div');
         closeBtn.setAttribute('data-type', 'close');
         closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-        closeBtn.classList.add('close');
+        closeBtn.classList.add('popup__close');
 
         const popup = document.createElement('div');
         popup.setAttribute('data-type', 'popup');
-        popup.textContent = message;
+        popup.innerHTML = `<p class="popup__title">${message}</p>`;
         popup.classList.add('popup');
         popup.appendChild(closeBtn);
 
