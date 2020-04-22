@@ -4393,6 +4393,10 @@ html {
   background-color: #9A3AB0;
 }
 
+.nav__link--user:hover {
+  background-color: transparent;
+}
+
 button {
   font-size: 1em;
   letter-spacing: 2px;

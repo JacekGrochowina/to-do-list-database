@@ -38,6 +38,11 @@
                 &--active {
                     background-color: $color__leading-3;
                 }
+                &--user {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
             }
         }
 
