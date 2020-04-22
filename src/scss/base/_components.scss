@@ -28,7 +28,7 @@
             }
             &__link {
                 display: block;
-                padding: 15px 35px;
+                padding: 15px 30px;
                 font-weight: $medium;
                 color: $color__white;
                 transition-property: background-color;
@@ -235,14 +235,6 @@
     // Wave SVG
         .svg {
             width: 100%;
-            &__wave {
-                position: absolute;
-                bottom: 0;
-                z-index: -1;
-            }
-            &__start-page {
-                
-            }
             &__sign-in {
                 width: 75%;
             }

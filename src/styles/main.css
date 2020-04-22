@@ -4374,7 +4374,7 @@ html {
 
 .nav__link {
   display: block;
-  padding: 15px 35px;
+  padding: 15px 30px;
   font-weight: 500;
   color: #FFFFFF;
   -webkit-transition-property: background-color;
@@ -4644,12 +4644,6 @@ button:hover {
 
 .svg {
   width: 100%;
-}
-
-.svg__wave {
-  position: absolute;
-  bottom: 0;
-  z-index: -1;
 }
 
 .svg__sign-in {

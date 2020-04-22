@@ -54,16 +54,16 @@
                         <!-- Form -->
                         <form class="form">
                             <div class="form__group">
-                                <input class="input" type="email" placeholder="Email">
+                                <input class="input" id="email" type="email" placeholder="Email">
                             </div>
 
                             <div class="form__group">
-                                <input class="input" type="password" placeholder="Hasło"><br>
+                                <input class="input" id="password" type="password" placeholder="Hasło"><br>
                                 <a class="desc" href="forgetPassword.html">zapomniałeś hasła?</a>
                             </div>
 
                             <div class="form__group form__group--button">
-                                <button type="submit">Dalej<i class="fas fa-chevron-right"></i></button>
+                                <button type="submit" id="btn-signin">Dalej<i class="fas fa-chevron-right"></i></button>
                             </div>
                         </form>
 
@@ -84,23 +84,18 @@
     <!------------------------------------------------------------>
 
     <!-- Firebase Config -->
-    <script type="module" src="./src/js/firebase-config.js"></script>
+    <script src="./src/js/firebase-config.js"></script>
 
-    <!-- Popup -->
-    <script type="module">
-        import * as fnc from './src/js/functions.js';
+    <!-- Sign In With Email and Password -->
+    <script type="module" src="./src/js/signin.js"></script>
 
-        document.querySelector('button[data-function="start"]')
-            .addEventListener('click',
-                () => {
-                    fnc.showPopup.dialog('Czy masz już konto?', 'Tak, mam', 'Jeszcze nie',
-                        () => {
-                            window.location.href = './signin.html';
-                        },
-                        () => {
-                            window.location.href = './signup.html';
-                        });
-                });
+    <!-- Take user to MainPage -->
+    <script>
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                window.location.href = "MainPage.html";
+            }
+        })
     </script>
 </body>
 

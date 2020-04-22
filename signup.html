@@ -53,19 +53,19 @@
                         <!-- Form -->
                         <form class="form">
                             <div class="form__group">
-                                <input class="input" type="email" placeholder="Email">
+                                <input class="input" id="email" type="email" placeholder="Email">
                             </div>
 
                             <div class="form__group">
-                                <input class="input" type="password" placeholder="Hasło">
+                                <input class="input" id="password" type="password" placeholder="Hasło">
                             </div>
 
                             <div class="form__group">
-                                <input class="input" type="password" placeholder="Powtórz hasło">
+                                <input class="input" id="confirmPassword" type="password" placeholder="Powtórz hasło">
                             </div>
 
                             <div class="form__group form__group--button">
-                                <button type="submit">Dalej<i class="fas fa-chevron-right"></i></button>
+                                <button type="submit" id="btn-signup">Dalej<i class="fas fa-chevron-right"></i></button>
                             </div>
                         </form>
 
@@ -78,6 +78,26 @@
             </div>
         </main>
     </div>
+
+
+    <!------------------------------------------------------------>
+    <!------------------------ JavaScript ------------------------>
+    <!------------------------------------------------------------>
+
+    <!-- Firebase Config -->
+    <script src="./src/js/firebase-config.js"></script>
+
+    <!-- Sign Up With Email and Password -->
+    <script type="module" src="./src/js/signup.js"></script>
+
+    <!-- Take user to MainPage -->
+    <script>
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                window.location.href = "MainPage.html";
+            }
+        })
+    </script>
 </body>
 
 </html>

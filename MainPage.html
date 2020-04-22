@@ -25,7 +25,7 @@
         <nav class="nav nav__main">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="#" class="nav__link">Wyloguj się</a>
+                    <div id="btn-logout" class="nav__link" style="cursor: pointer;">Wyloguj się</div>
                 </li>
             </ul>
         </nav>
@@ -66,26 +66,25 @@
     </div>
 
 
-    <!-- JavaScript -->
-    <script type="module" src="./src/js/firebase-config.js"></script>
+    <!------------------------------------------------------------>
+    <!------------------------ JavaScript ------------------------>
+    <!------------------------------------------------------------>
 
-    <script type="module">
-        import * as fnc from './src/js/functions.js';
+    <!-- Firebase Config -->
+    <script src="./src/js/firebase-config.js"></script>
 
-        function showTrue() {
-            window.location.href = './signin.html';
-        }
+    <!-- Logout -->
+    <script src="./src/js/logout.js"></script>
 
-        function showFalse() {
-            window.location.href = './signup.html';
-        }
-
-        document.querySelector('button[data-function="start"]').addEventListener('click', () => {
-
-            fnc.showPopup.dialog('Czy masz już konto?', 'Tak, mam', 'Jeszcze nie', showTrue, showFalse);
-
-        });
+    <!-- Take user to SignIn Page -->
+    <script>
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!user) {
+                window.location.href = "signin.html"
+            }
+        })
     </script>
+
 </body>
 
 </html>
