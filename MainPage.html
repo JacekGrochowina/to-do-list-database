@@ -33,35 +33,115 @@
 
         <!-- Main Content Page -->
         <main class="flex-grow-1 flex-center py-5">
-            <div class="container container--expand position-relative">
-                <div class="row align-items-center">
-                    <div class="
-                        col-lg-8
-                        col-md-9
-                        col-12
-                        pt-md-6
-                    ">
-                        <img src="./src/assets/svg/hero/StartPage.svg" class="svg svg__start-page">
+            <div class="container container--shrink position-relative">
+
+                <!-- Section -->
+                <section class="section section--list">
+                    <!-- Header -->
+                    <header class="header">
+                        <h1>Lista zadań<i class="fas fa-tasks"></i></h1>
+                    </header>
+
+
+                    <!-- Input Add Task -->
+                    <div class="form__group">
+                        <input class="input input--task" id="task" type="text" placeholder="Treść zadania">
+                        <button class="input--task-btn"><i class="fas fa-plus"></i></button>
                     </div>
 
-                    <div class="
-                        offset-lg-6 col-lg-6
-                        offset-md-5 col-md-7
-                        offset-sm-2 col-sm-10
-                        offset-0 col-12
-                        position-absolute" style="z-index: 10;">
-                        <div class="wrapper">
-                            <h1 class="title title__hero">
-                                <span class="hero margin-0">Witaj</span>
-                            </h1>
-                            <div class="wrapper" style="text-align: center;">
-                                <button class="button button__default" data-function="start">zacznij</button>
+                    <!-- Section of Taks To Do -->
+                    <section class="section section--tasks">
+
+                        <!-- Task To Do -->
+                        <div class="task task--todo">
+                            <span class="task__span">
+                                Treść zadania
+                            </span>
+                            <div class="task__icons">
+                                <div class="task__icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <div class="task__icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                        <!-- Task To Do -->
+                        <div class="task task--todo">
+                            <span class="task__span">
+                                Lorem ipsum dolor sit amet consectetur.
+                            </span>
+                            <div class="task__icons">
+                                <div class="task__icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <div class="task__icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task To Do -->
+                        <div class="task task--todo">
+                            <span class="task__span">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, deserunt!
+                            </span>
+                            <div class="task__icons">
+                                <div class="task__icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <div class="task__icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
+                </section>
+
+                <!-- Section -->
+                <section class="section section--list">
+                    <!-- Header -->
+                    <header class="header">
+                        <h1>Wykonane<i class="fas fa-check"></i></h1>
+                    </header>
+
+                    <!-- Section of Taks Done -->
+                    <section class="section section--tasks">
+
+                        <!-- Task Done -->
+                        <div class="task task--done">
+                            <span class="task__span">
+                                Treść zadania
+                            </span>
+                            <div class="task__icons">
+                                <div class="task__icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task Done -->
+                        <div class="task task--done">
+                            <span class="task__span">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                            <div class="task__icons">
+                                <div class="task__icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
             </div>
-        </main>
+            </section>
+
+    </div>
+    </main>
 
     </div>
 
