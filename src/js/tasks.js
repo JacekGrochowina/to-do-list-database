@@ -24,12 +24,6 @@ function getInputValue() {
     return document.getElementById('task').value;
 }
 
-// var inputValue = document.getElementById('task').value;
-
-// document.getElementById('btn-add-task').addEventListener('click', function () {
-//     generateToDoTask(getInputValue());
-// });
-
 function generateToDoTask(key, taskValue) {
 
     if (taskValue != "") {
@@ -121,14 +115,13 @@ function generateDoneTask(key, taskValue) {
     sectionParent.appendChild(task);
 }
 
-
-
-// Load Firebase Data
-setTimeout(function () {
-    document.addEventListener('load', firebaseReadData());
-}, 400)
+// Read Firebase Data on Load
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        firebaseReadData()
+    }
+});
 document.getElementById('btn-add-task').addEventListener('click', firebaseReadData);
-
 
 // Read Firebase Data
 function firebaseReadData() {
