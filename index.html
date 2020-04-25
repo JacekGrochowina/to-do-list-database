@@ -11,6 +11,11 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./src/styles/main.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
 </head>
 
 <body>
@@ -74,6 +79,9 @@
     <!------------------------ JavaScript ------------------------>
     <!------------------------------------------------------------>
 
+    <!-- Firebase Config -->
+    <script src="./src/js/firebase-config.js"></script>
+
     <!-- Popup -->
     <script type="module">
         import * as fnc from './src/js/functions.js';
@@ -87,6 +95,12 @@
                     window.location.href = './signup.html';
                 });
         });
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                window.location.href = "MainPage.html";
+            }
+        })
     </script>
 
 </body>
