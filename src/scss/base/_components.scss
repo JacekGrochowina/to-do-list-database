@@ -47,6 +47,19 @@
             }
         }
 
+        @media (max-width: 576px) {
+            .nav {
+                &__item {
+                    flex-grow: 1;
+                }
+                &__link {
+                    padding: 10px 0;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+
     // Button
         button {
             font-size: 1em;

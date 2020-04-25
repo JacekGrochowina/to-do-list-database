@@ -4404,6 +4404,19 @@ html {
   background-color: transparent;
 }
 
+@media (max-width: 576px) {
+  .nav__item {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .nav__link {
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 button {
   font-size: 1em;
   letter-spacing: 2px;
