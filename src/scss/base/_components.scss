@@ -5,6 +5,7 @@
     // Navigation
         .nav {
             &__main {
+                font-size: 15px;
                 height: 80px;
                 background-color: $color__leading;
                 display: flex;
@@ -264,6 +265,14 @@
             width: 100%;
             &__sign-in {
                 width: 75%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .svg {
+                &__start-page {
+                    opacity: 0.5;
+                }
             }
         }
 

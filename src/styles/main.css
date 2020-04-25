@@ -4338,10 +4338,17 @@ html {
   z-index: -1;
 }
 
+@media (max-width: 576px) {
+  .title__hero {
+    font-size: 1.8em;
+  }
+}
+
 /*
  * ---------    Components    ---------
  */
 .nav__main {
+  font-size: 15px;
   height: 80px;
   background-color: #AB60B8;
   display: -webkit-box;
@@ -4684,6 +4691,12 @@ button:hover {
 
 .svg__sign-in {
   width: 75%;
+}
+
+@media (max-width: 576px) {
+  .svg__start-page {
+    opacity: 0.5;
+  }
 }
 
 .section--list {

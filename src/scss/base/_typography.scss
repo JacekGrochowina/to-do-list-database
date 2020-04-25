@@ -45,7 +45,10 @@
             }
         }
 
-    // Header
-        .header {
-            
+        @media (max-width: 576px) {
+            .title {
+                &__hero {
+                    font-size: 1.8em;
+                }
+            }
         }
