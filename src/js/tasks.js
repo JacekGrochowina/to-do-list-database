@@ -10,11 +10,10 @@ document.getElementById('btn-add-task').addEventListener('click', () => {
     if (inputValue != "") {
 
         var data = {
-            "done": false,
             "content": inputValue
         };
 
-        firebase.database().ref().child('Users').child(userID).push(data);
+        firebase.database().ref().child('Users').child(userID).child('to-do').push(data);
 
     } else {
         fnc.showPopup.info('Najpierw podaj treść zadania.');
@@ -67,14 +66,15 @@ function generateToDoTask(key, taskValue) {
         // Add Events
         iconTrash.addEventListener('click', () => {
             var userID = firebase.auth().currentUser.uid;
-            firebase.database().ref('/Users/' + userID).child(key).remove();
+            firebase.database().ref('/Users/' + userID).child('to-do').child(key).remove();
             firebaseReadData();
         })
 
         iconCheck.addEventListener('click', () => {
             var userID = firebase.auth().currentUser.uid;
-            taskValue.done = true;
-            console.log(firebase.database().ref('/Users/' + userID).child(key).set(taskValue));
+            firebase.database().ref('/Users/' + userID).child('to-do').child(key).remove();
+            firebase.database().ref('/Users/' + userID).child('done').push(taskValue);
+            firebaseReadData();
         })
 
 
@@ -84,28 +84,77 @@ function generateToDoTask(key, taskValue) {
     }
 }
 
+function generateDoneTask(key, taskValue) {
+
+    const task = document.createElement('div');
+    task.classList.add('task');
+    task.classList.add('task--done');
+    task.setAttribute('key', key);
+
+    const content = document.createElement('div');
+    content.classList.add('task__span');
+    content.textContent = taskValue.content;
+
+    const icons = document.createElement('div');
+    icons.classList.add('task__icons');
+
+    const iconTrash = document.createElement('div');
+    iconTrash.classList.add('task__icon');
+    iconTrash.innerHTML = '<i class="fas fa-trash-alt"></i>';
+
+
+    //  Assemble Task
+    icons.appendChild(iconTrash);
+    task.appendChild(content);
+    task.appendChild(icons);
+
+
+    // Add Events
+    iconTrash.addEventListener('click', () => {
+        var userID = firebase.auth().currentUser.uid;
+        firebase.database().ref('/Users/' + userID).child('done').child(key).remove();
+        firebaseReadData();
+    })
+
+    const sectionParent = document.querySelector('[data-tasks="tasks-done"]');
+
+    sectionParent.appendChild(task);
+}
 
 
 
-
+// Load Firebase Data
 setTimeout(function () {
     document.addEventListener('load', firebaseReadData());
 }, 400)
-
 document.getElementById('btn-add-task').addEventListener('click', firebaseReadData);
 
 
+// Read Firebase Data
 function firebaseReadData() {
     var userID = firebase.auth().currentUser.uid;
-    document.querySelector('[data-tasks="tasks-to-do"]').innerHTML = null;
 
-    firebase.database().ref('/Users/' + userID)
+    // Display To Do Tasks
+    document.querySelector('[data-tasks="tasks-to-do"]').innerHTML = null;
+    firebase.database().ref('/Users/' + userID).child('to-do')
         .once('value')
         .then(function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
                 var childKey = childSnapshot.key;
                 var childData = childSnapshot.val();
                 generateToDoTask(childKey, childData);
+            });
+        });
+
+    // Display Done Tasks
+    document.querySelector('[data-tasks="tasks-done"]').innerHTML = null;
+    firebase.database().ref('/Users/' + userID).child('done')
+        .once('value')
+        .then(function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                generateDoneTask(childKey, childData);
             });
         });
 }
