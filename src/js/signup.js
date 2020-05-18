@@ -20,7 +20,7 @@ document.getElementById('btn-signup').addEventListener('click', function (e) {
                 fnc.showPopup.info(`Błąd: ${errorMessage}`)
             })
         } else {
-            fnc.showPopup.info('Hasło nie zgadza się z Potwierdzeniem Hasła')
+            fnc.showPopup.info('Hasło nie zgadza się z potwierdzeniem hasła')
         }
     } else {
         fnc.showPopup.info('Proszę wypełnić wszystkie pola.')
